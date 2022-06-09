@@ -24,4 +24,11 @@ public class Tests {
         var ans = Evaluator.eval(tokens);
         assertEquals(13, ans);
     }
+
+    @Test
+    void testShouldZero() {
+        var tokens = Parser.postfix("3 / 4 * 4");
+        var ans = Evaluator.eval(tokens);
+        assertEquals(0, ans);
+    }
 }
