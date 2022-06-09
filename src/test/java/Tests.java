@@ -31,4 +31,25 @@ public class Tests {
         var ans = Evaluator.eval(tokens);
         assertEquals(0, ans);
     }
+
+    @Test
+    void testPrecAnother() {
+        var tokens = Parser.postfix("4 / 3 * 4");
+        var ans = Evaluator.eval(tokens);
+        assertEquals(4, ans);
+    }
+
+    @Test
+    void testPrecAddSubstract1() {
+        var tokens = Parser.postfix("2 - 3 + 4");
+        var ans = Evaluator.eval(tokens);
+        assertEquals(3, ans);
+    }
+
+    @Test
+    void testPrecAddSubstract2() {
+        var tokens = Parser.postfix("2 + 3 - 4");
+        var ans = Evaluator.eval(tokens);
+        assertEquals(1, ans);
+    }
 }

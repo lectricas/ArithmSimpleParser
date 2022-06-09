@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Parser {
     private enum Operator {
-        ADD(1), SUBTRACT(2), MULTIPLY(4), DIVIDE(3);
+        ADD(1), SUBTRACT(2), MULTIPLY(3), DIVIDE(3);
         final int precedence;
 
         Operator(int p) {
