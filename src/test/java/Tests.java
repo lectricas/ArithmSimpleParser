@@ -16,4 +16,12 @@ public class Tests {
         var ans = Evaluator.eval(tokens);
         assertEquals(5, ans);
     }
+
+
+    @Test
+    void testPrecAddSub() {
+        var tokens = Parser.postfix("( 4 - 3 ) * 2 + 11");
+        var ans = Evaluator.eval(tokens);
+        assertEquals(13, ans);
+    }
 }
