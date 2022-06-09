@@ -1,38 +1,34 @@
 import java.util.Stack;
 
 public class Evaluator {
-    public static Double eval(String expr) {
+    public static Integer eval(String expr) {
         String cleanExpr = expr;
-        Stack<Double> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         for (String token : cleanExpr.split("\\s")) {
-            Double tokenNum = null;
+            Integer tokenNum = null;
             try {
-                tokenNum = Double.parseDouble(token);
+                tokenNum = Integer.parseInt(token);
             } catch (NumberFormatException e) {
                 //pass
             }
             if (tokenNum != null) {
-                stack.push(Double.parseDouble(token + ""));
+                stack.push(Integer.parseInt(token + ""));
             } else if (token.equals("*")) {
-                double secondOperand = stack.pop();
-                double firstOperand = stack.pop();
+                int secondOperand = stack.pop();
+                int firstOperand = stack.pop();
                 stack.push(firstOperand * secondOperand);
             } else if (token.equals("/")) {
-                double secondOperand = stack.pop();
-                double firstOperand = stack.pop();
+                int secondOperand = stack.pop();
+                int firstOperand = stack.pop();
                 stack.push(firstOperand / secondOperand);
             } else if (token.equals("-")) {
-                double secondOperand = stack.pop();
-                double firstOperand = stack.pop();
+                int secondOperand = stack.pop();
+                int firstOperand = stack.pop();
                 stack.push(firstOperand - secondOperand);
             } else if (token.equals("+")) {
-                double secondOperand = stack.pop();
-                double firstOperand = stack.pop();
+                int secondOperand = stack.pop();
+                int firstOperand = stack.pop();
                 stack.push(firstOperand + secondOperand);
-            } else if (token.equals("^")) {
-                double secondOperand = stack.pop();
-                double firstOperand = stack.pop();
-                stack.push(Math.pow(firstOperand, secondOperand));
             } else {
                 System.out.println("Error");
                 return null;

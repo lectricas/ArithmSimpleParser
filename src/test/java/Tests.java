@@ -10,18 +10,10 @@ public class Tests {
         assertEquals(56, actual);
     }
 
-
     @Test
-    void testSimpleDouble() {
-        var tokens = Parser.postfix("12.3234 + 4.11 * 11.23");
-        var actual = Evaluator.eval(tokens);
-        assertEquals(58.4787, actual);
-    }
-
-    @Test
-    void testParan() {
-        var tokens = Parser.postfix("( 12.3234 + 4.11 ) * 11.23");
-        var actual = Evaluator.eval(tokens);
-        assertEquals(184.547082, actual);
+    void testPrec() {
+        var tokens = Parser.postfix("4 * 3 / 4 + 1 * 8 / 4");
+        var ans = Evaluator.eval(tokens);
+        assertEquals(5, ans);
     }
 }
